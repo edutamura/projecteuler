@@ -9,7 +9,40 @@ using namespace std;
 //descrição das variáveis globais:
 //vet[]: o vetor que armazena os números primos
 //
-int vet[10001];
+long vet[10001];
+
+//Função para preencher o número primo no vetor vet[]
+void preencheVetor(int valor, int posicao) {
+
+	vet[posicao] = valor;
+
+}
+
+//Funação para inicializar o vetor com valores "-1"
+void iniciaVetor() {
+
+	//descirção das variáveis locais:
+	//aux: auxiliar no loop para preencher o vetor
+	int aux = 0;
+
+	for (aux = 0; aux < 10002; aux++) {
+
+		vet[aux] = -1;
+
+	}
+
+}
+
+//Função para verificar se o número é primo
+bool verificaPrimo(int numero, int ultimo) {
+
+	//descrição das variáveis locais:
+	//aux: auxiliar no loop
+	int aux = 0;
+
+	return(true);
+
+}
 
 int main()
 {
@@ -18,30 +51,16 @@ int main()
 	//
 	int cont;
 
+	iniciaVetor();
+
 	cont = 0;
 	
+	cout << "valor vetor: " << vet[5] << "\n";
+
     std::cout << "\nHello World!\n"; 
 }
 
-//Função para preencher o número primo no vetor vet[]
-void preencheVetor(int valor, int posicao) {
-		
-	vet[posicao] = valor;
-	
-}
 
-//Função para verificar se o número é primo
-bool validaPrimo(int numero, int ultimo) {
-	
-	//descrição das variáveis locais:
-	//aux: auxiliar no loop
-	int aux = 0;
-
-	while (aux != ultimo) {
-
-	}
-
-}
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
