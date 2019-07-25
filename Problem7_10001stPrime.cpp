@@ -8,8 +8,9 @@ using namespace std;
 
 //descrição das variáveis globais:
 //vet[]: o vetor que armazena os números primos
-//
+//contadorVetor: conta a última posição preenchida do vetor com o primo
 long vet[10001];
+int contadorVetor = 0;
 
 //Função para preencher o número primo no vetor vet[]
 void preencheVetor(int valor, int posicao) {
@@ -25,20 +26,28 @@ void iniciaVetor() {
 	//aux: auxiliar no loop para preencher o vetor
 	int aux = 0;
 
-	for (aux = 0; aux < 10002; aux++) {
+	for (aux = 0; aux <= 10001; aux++) {
 
-		vet[aux] = -1;
+		preencheVetor( -1, aux);
 
 	}
 
 }
 
 //Função para verificar se o número é primo
-bool verificaPrimo(int numero, int ultimo) {
+bool verificaPrimo(long numero, int posicao) {
 
 	//descrição das variáveis locais:
 	//aux: auxiliar no loop
 	int aux = 0;
+	
+	for (aux = 0; aux < posicao; aux++) {
+
+		if (numero % vet[aux] > 0 && ) {
+
+		}
+
+	}
 
 	return(true);
 
@@ -50,12 +59,17 @@ int main()
 	//cont: serve para registrar a quantidade de números primos
 	//
 	int cont;
+	int i;
+
+	vet[5] = 72;
+
+	cout << "valor vetor antes: " << vet[5] << "\n\n";
 
 	iniciaVetor();
 
 	cont = 0;
 	
-	cout << "valor vetor: " << vet[5] << "\n";
+	cout << "\nvalor vetor depois: " << vet[5] << "\n\n";
 
     std::cout << "\nHello World!\n"; 
 }
