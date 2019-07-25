@@ -41,14 +41,15 @@ bool verificaPrimo(long numero, int posicao) {
 	//aux: auxiliar no loop
 	int aux = 0;
 	
+	//verifica se o número é divisível pelos primos já registrados no vetor
 	for (aux = 0; aux < posicao; aux++) {
 
-		if (numero % vet[aux] > 0 && ) {
-
+		if (numero % vet[aux] == 0 ) {
+			return(false);
 		}
-
+		
 	}
-
+	
 	return(true);
 
 }
