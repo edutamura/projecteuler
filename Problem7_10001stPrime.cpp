@@ -9,11 +9,11 @@ using namespace std;
 //descrição das variáveis globais:
 //vet[]: o vetor que armazena os números primos
 //contadorVetor: conta a última posição preenchida do vetor com o primo
-long vet[10001];
-int contadorVetor = 0;
+long vet[10];
+int contadorVetor = 0, cont = 0;
 
 //Função para preencher o número primo no vetor vet[]
-void preencheVetor(int valor, int posicao) {
+void preencheVetor(long valor, int posicao) {
 
 	vet[posicao] = valor;
 
@@ -26,31 +26,65 @@ void iniciaVetor() {
 	//aux: auxiliar no loop para preencher o vetor
 	int aux = 0;
 
-	for (aux = 0; aux <= 10001; aux++) {
+	for (aux = 0; aux <= 10; aux++) {
 
 		preencheVetor( -1, aux);
 
 	}
 
+	//vet[0] = 2;
+
 }
 
 //Função para verificar se o número é primo
-bool verificaPrimo(long numero, int posicao) {
+bool verificaPrimo(long numero) {
 
 	//descrição das variáveis locais:
 	//aux: auxiliar no loop
-	int aux = 0;
+	//aux2: auxiliar para registrar o resultado da verificação
+	int aux;
+	bool aux2 = false;
 	
-	//verifica se o número é divisível pelos primos já registrados no vetor
-	for (aux = 0; aux < posicao; aux++) {
+	cout << "\nnumero analisado: " << numero << "\n";
 
-		if (numero % vet[aux] == 0 ) {
-			return(false);
+	//verifica se o número é divisível pelos primos já registrados no vetor
+	
+	if (numero == 0 || numero == 1) {
+
+		cout << "\n retornou falso\n";
+
+		return(false);
+
+	}
+	else {
+
+		cout << "\n\n entrou no else func\n\n";
+
+		for (aux = 0; aux < 10; aux++) {
+
+			cout << "\n\n entrou no for func\n\n";
+
+			if (numero % vet[aux] == 0 && numero != 2) {
+
+				cout << "\nfalso: " << numero << " nao primo\n";
+
+				return(false);
+
+			}
+			else {
+				aux2 = true;
+			}
+
 		}
-		
+
 	}
 	
-	return(true);
+	
+	if (aux2 == true) {
+		cout << "\nverdadeiro: " << numero << " eh primo\n";
+	}
+	
+	return(aux2);
 
 }
 
@@ -58,20 +92,39 @@ int main()
 {
 	//descrição das variáveis locais:
 	//cont: serve para registrar a quantidade de números primos
-	//
-	int cont;
-	int i;
-
-	vet[5] = 72;
-
-	cout << "valor vetor antes: " << vet[5] << "\n\n";
-
-	iniciaVetor();
-
-	cont = 0;
+	//i: numero sendo verificado
+	int x;
+	long i = 0;
 	
-	cout << "\nvalor vetor depois: " << vet[5] << "\n\n";
+	iniciaVetor();
+	
+	//verifica e preenche o vetor com os primos
+	while (cont < 9 || i < 15) {
 
+		if (verificaPrimo(i) == true) {
+
+			preencheVetor(i, cont);
+			i++;
+			cont++;
+			cout << "\n\n entrou no while main\n\n";
+		}
+		else {
+
+			cout << "\n\n entrou no else main\n\n";
+			i++;
+
+		}
+						
+	}
+	
+	cout << "\n\n-------------------\n\n";
+
+	for (x = 0; x < 10; x++) {
+
+		cout << vet[x] << "  /  ";
+
+	}
+	
     std::cout << "\nHello World!\n"; 
 }
 
