@@ -9,7 +9,7 @@ using namespace std;
 //descrição das variáveis globais:
 //vet[]: o vetor que armazena os números primos
 //contadorVetor: conta a última posição preenchida do vetor com o primo
-long vet[10000];
+long vet[10001];
 int contadorVetor = 0, numero = 0;
 
 //Função para preencher o número primo no vetor vet[]
@@ -17,23 +17,6 @@ void preencheVetor(long valor) {
 
 	vet[contadorVetor] = valor;
 	
-}
-
-//Funação para inicializar o vetor com valores "-1"
-void iniciaVetor() {
-
-	//descirção das variáveis locais:
-	//aux: auxiliar no loop para preencher o vetor
-	int aux = 0;
-
-	for (aux = 0; aux <= 10; aux++) {
-
-		preencheVetor(-1);
-
-	}
-
-	//vet[0] = 2;
-
 }
 
 //Função para verificar se o número é primo
@@ -84,8 +67,7 @@ bool verificaPrimo(long numero) {
 
 		}
 
-	}
-	
+	}	
 	
 	if (aux2 == true) {
 		cout << "\nverdadeiro: " << numero << " eh primo\n";
@@ -100,7 +82,8 @@ int main()
 	//descrição das variáveis locais:
 	//cont: serve para registrar a quantidade de números primos
 	//i: numero sendo verificado
-	int x;
+	int x = 0;
+	int y;
 	
 	cout << "\n\n-------------------\n\n";
 
@@ -140,15 +123,16 @@ int main()
 		}
 
 	}
-		
+	
+	y = 10000;
+
 	cout << "\n\n-------------------\n\n";
-
-
-	cout << "10001st Prime number is: " << vet[10000];
+	
+	cout << "10001st Prime number is: " << vet[y];
 
 	cout << "\n\n-------------------\n\n";
 	/*
-	for (x = 0; x < 10; x++) {
+	for (x = 0; x < 15; x++) {
 
 		cout << vet[x] << "  /  ";
 
