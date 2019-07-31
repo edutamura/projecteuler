@@ -6,7 +6,7 @@
 
 using namespace std;
 
-long long vet[1000000];
+long long vet[2000000];
 long long contadorVetor = 0, numero = 0;
 
 //Função para preencher o número primo no vetor vet[]
