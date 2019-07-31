@@ -5,6 +5,7 @@
 #include <fstream>
 #include <iostream>
 #include <math.h>
+#include <stdlib.h>
 
 using namespace std;
 
@@ -12,7 +13,7 @@ int main()
 {
 	char data[1001];
 	long aux, aux2;
-	long numero[1000], resultado1 = 0, resultado2 = 0;
+	long long numero[1000], resultado1 = 0, resultado2 = 0;
 	ifstream infile;
 	infile.open("numero.txt");
 
@@ -20,10 +21,10 @@ int main()
 	if (infile.is_open() && infile.good()) //verificamos se está tudo bem
 	{
 		infile >> data; 		//colocamos os dados abertos no array
-		//cout << data << endl;
+		cout << data << endl;
 		infile.close();
 	}
-
+		
 	//preenche o vetor transformando de char para long
 	for (aux = 0; aux < 1000; aux++) {
 
@@ -31,7 +32,7 @@ int main()
 
 	}
 	
-	for (aux = 0; aux < 1000; aux++) {
+	for (aux = 0; aux < 1000 - 12; aux++) {
 
 		resultado1 = (long) numero[aux] * numero[aux + 1] * numero[aux + 2] * numero[aux + 3] * numero[aux + 4] * numero[aux + 5] * numero[aux + 6] * numero[aux + 7] * numero[aux + 8] * numero[aux + 9] * numero[aux + 10] * numero[aux + 11] * numero[aux + 12];
 						
@@ -40,7 +41,7 @@ int main()
 			cout << "\nresultado1 maior que resultado2: " << resultado1 << " > " << resultado2 << endl;
 			
 			resultado2 = resultado1;
-			/*
+			
 			cout << "\nposicao: " << aux << endl;
 
 			aux2 = aux;
@@ -57,12 +58,12 @@ int main()
 				cout << numero[aux2];
 			
 			}
-			*/			
+					
 		}
 
 	}
 	
-	/*
+	
 	for (aux = 0; aux < (1000 - 4); aux++) {
 
 		resultado1 = numero[aux] * numero[aux + 1] * numero[aux + 2] * numero[aux + 3];
@@ -85,7 +86,7 @@ int main()
 		}
 
 	}
-	*/
+	
 	cout << "\n\n\nimprimindo numero:\n\n\n";
 
 	for (aux = 0; aux < 1000; aux++) {
