@@ -10,7 +10,7 @@ long long vet[2000000];
 long long contadorVetor = 0, numero = 0;
 
 //Função para preencher o número primo no vetor vet[]
-void preencheVetor(long valor) {
+void preencheVetor(long long valor) {
 
 	vet[contadorVetor] = valor;
 
@@ -49,7 +49,7 @@ bool verificaPrimo(long numero) {
 
 		//para saber se um número é primo,
 		//basta saber se ele não é divisível pelas primos menores do que sua raíz.
-		for (aux = 0; vet[aux] <= raiz_numero && aux <= (contadorVetor - 1); aux++) {
+		for (aux = 0; aux <= (contadorVetor - 1); aux++) {
 
 			//cout << "\n\n entrou no for func\n\n";
 
@@ -83,7 +83,7 @@ int main()
 	//cont: serve para registrar a quantidade de números primos
 	//i: numero sendo verificado
 	int x = 0;
-	long soma = 0;
+	long long soma = 0;
 	//int y;
 	bool verifica = false;
 
@@ -95,10 +95,11 @@ int main()
 
 	contadorVetor = 0;
 
-	while (vet[contadorVetor] < 2000001) {
+	while (vet[contadorVetor] < 1999999) {
 
 		//cout << "\nNumero sendo analisado: " << numero << "\n";
 		//cout << "ContadorVetor = " << contadorVetor << "\n";
+		if (numero >= 2000000) break;
 
 		if (verificaPrimo(numero) == true) {
 
