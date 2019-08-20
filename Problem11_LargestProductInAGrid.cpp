@@ -6,7 +6,7 @@
 
 using namespace std;
 
-int matrix[20][20] = { {8,2,22,97,38,15,0,40,0,75,4,5,7,78,52,12,50,77,91,8},
+long long matrix[20][20] = { {8,2,22,97,38,15,0,40,0,75,4,5,7,78,52,12,50,77,91,8},
 						{49,49,99,40,17,81,18,57,60,87,17,40,98,43,69,48,4,56,62,0},
 						{81,49,31,73,55,79,14,29,93,71,40,67,53,88,30,3,49,13,36,65},
 						{52,70,95,23,4,60,11,42,69,24,68,56,1,32,56,71,37,2,36,91},
@@ -28,9 +28,9 @@ int matrix[20][20] = { {8,2,22,97,38,15,0,40,0,75,4,5,7,78,52,12,50,77,91,8},
 						{1,70,54,71,83,51,54,69,16,92,33,48,61,43,52,1,89,19,67,48}
 };
 
-int mHorizontal(int i, int j) {
+long long mHorizontal(long long i, long long j) {
 
-	int n1, n2, n3, n4;
+	long long n1, n2, n3, n4;
 	long long resultado;
 
 	if (j < 17) {
@@ -49,9 +49,9 @@ int mHorizontal(int i, int j) {
 
 }
 
-int mVertical(int i, int j) {
+long long mVertical(long long i, long long j) {
 
-	int n1, n2, n3, n4;
+	long long n1, n2, n3, n4;
 	long long resultado;
 	
 	if (i < 17) {
@@ -68,13 +68,13 @@ int mVertical(int i, int j) {
 	
 }
 
-int mDiagonal(int i, int j) {
+long long mDiagonal(long long i, long long j) {
 
-	int n1, n2, n3, n4;
+	long long n1, n2, n3, n4;
 	long long resultado;
-	cout << i << endl;
-	cout << j << endl;
-	if (i < 17 || j < 17) {
+	
+	if (i < 17 && j < 17) {
+		
 		n1 = matrix[i][j];
 		n2 = matrix[i + 1][j + 1];
 		n3 = matrix[i + 2][j + 2];
@@ -88,9 +88,29 @@ int mDiagonal(int i, int j) {
 
 }
 
+long long mDiagonal2(long long i, long long j) {
+
+	long long n1, n2, n3, n4;
+	long long resultado;
+
+	if ( i < 17 && j > 2 ) {
+
+		n1 = matrix[i][j];
+		n2 = matrix[i + 1][j - 1];
+		n3 = matrix[i + 2][j - 2];
+		n4 = matrix[i + 3][j - 3];
+
+		resultado = n1 * n2 * n3 * n4;
+
+		return(resultado);
+	}
+	else return(-1);
+
+}
+
 int main()
 {	
-	int i, j;
+	long long i, j;
 	long long result;
 	
 
@@ -106,24 +126,24 @@ int main()
 		cout << endl;
 
 	}
-	/*
-	//Varre a matrix e chama as funções
+	
+	result = 0;
+
+	//Varre a matrix e chama as funÃ§Ãµes
 	for (i = 0; i < 20; i++) {
 
 		for (j = 0; j < 20; j++) {
 
-			mHorizontal(i, j);
-			mVertical(i, j);
-			mDiagonal(i, j);
-
-
+			if (result < mHorizontal(j, j)) result = mHorizontal(i, j);
+			if (result < mVertical(i, j)) result = mVertical(i, j);
+			if (result < mDiagonal(i, j)) result = mDiagonal(i, j);
+			if (result < mDiagonal2(i, j)) result = mDiagonal2(i, j);
+						
 		}
-
-		cout << endl;
-
+		
 	}
-	*/
-	//Teste das funções
+	/*
+	//Teste das funÃ§Ãµes
 	cout << "\n\nINICIO TESTE\n\n";
 
 	cout << "\n\nHorizontal:\n";
@@ -155,6 +175,9 @@ int main()
 	cout << "\n" << result;
 
 	cout << "\n\nFIM TESTE\n\n";
+	*/
+
+	cout << "\n\nResultado: " << result << endl;
 
     std::cout << "Hello World!\n"; 
 }
@@ -169,3 +192,4 @@ int main()
 //   4. Use the Error List window to view errors
 //   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
 //   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+
